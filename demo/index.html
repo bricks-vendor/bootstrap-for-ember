@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../dist/showcase/scripts/vendor/modernizr.js"></script>
+    <script src="../dist/showcase/scripts/showcase-components.js"></script>
+
+    <script src="../dist/js/bs-ui.max.js"></script>
+    <script type="text/javascript">
+        App=Ember.Application.create();
+        App.Router.map(function() {
+            return this.resource('show_components', function () {
+                this.route('alert');
+                this.route('breadcrumbs');
+                this.route('modal');
+                this.route('label');
+                this.route('badge');
+                this.route('well');
+                this.route('list-group');
+                this.route('panel');
+                this.route('page-header');
+                this.route('button');
+                this.route('buttonGroup');
+                this.route('progressbar');
+                this.route('pills');
+                this.route('tabs');
+                this.route('tabs-panes');
+                this.route('wizard');
+                this.route('items_action_bar');
+                this.route('tabs-with-routes');
+                this.route('notifications');
+                this.route('growl-notif');
+                this.route('popover');
+                return this.resource('user', function () {
+                    this.route('general');
+                    this.route('privacy');
+                    return this.route('activities');
+                });
+            });
+        });
+        App.ShowComponentsTabsPanesController = Ember.Controller.extend({
+            tabsMeta: Ember.A([
+                Ember.Object.create({
+                    title: 'Foo',
+                    template: 'tabs/foo-tabpane',
+                    controller: 'xx'
+                }), Ember.Object.create({
+                    title: 'Bar2',
+                    template: 'tabs/bar-tabpane'
+                })
+                , Ember.Object.create({
+                    title: '333',
+                    template: 'tabs/bar-tabpane'
+                })
+            ])
+        });
+        App.XxController=Em.ObjectController.extend();
+    </script>
+    <link rel="stylesheet" href="../dist/css/bs-growl-notifications.min.css">
+    <link rel="stylesheet" href="../dist/showcase/styles/main.css">
+</head>
+<body>
+<script type="text/x-handlebars">
+    <h1 id="tabs">Tabs</h1>
+    <p>Tabs are like Pills but styled differently,
+        The share exactly the same concepts, so this page doesn&#39;t repeat everything, visit Pills for the complete details.</p>
+    <h2 id="simple-tabs">Simple Tabs</h2>
+    <div class="bs-example">
+        {{bs-tabs contentBinding="content" selectedBinding="selected"}}
+
+        <br/>
+        <strong>Selected</strong>: {{selected}}
+    </div>
+
+
+    <pre><code class="lang-html">    &#123;&#123;bs-tabs contentBinding="content" selectedBinding="selected"&#125;&#125;</code></pre>
+    <p>Controller&#39;s code:</p>
+<pre><code class="lang-javascript">Showcase.ShowComponentsTabsController = Ember.Controller.extend({
+    content: [&#39;Home&#39;, &#39;Profile&#39;, &#39;Messages&#39;]
+    });</code></pre>
+    <h2 id="panes">Panes</h2>
+    <p>Please see {{#link-to "show_components.tabs-panes"}}Tab Panes{{/link-to}} for more info about Tab Panes.</p>
+    {{outlet}}
+</script>
+<script type="text/x-handlebars" id="show_components/tabs-panes">
+    <div class="bs-example">
+        {{bs-tabs id="tabs1" contentBinding="tabsMeta" default="Foo" justified=true}}
+        {{bs-tabs-panes items-id="tabs1" contentBinding="tabsMeta"}}
+    </div>
+</script>
+<script type="text/x-handlebars" id="tabs/foo-tabpane">
+    this is tab pane<br/>
+    <div style="width:400px;margin-left:50px;">
+        {{#bs-panel heading="Simple Panel" footer="Panel Footer"}}
+        <p>Panel content goes here...!</p>
+        {{/bs-panel}}
+    </div>
+
+    Controller is: {{controller}}
+    <div style="background:#CCC;height:300px;width:200px;">xx</div>
+</script>
+<script type="text/x-handlebars" id="tabs/bar-tabpane">
+    antoher<br/>
+    Controller is: {{controller}}
+    <div style="background:#CCC;height:300px;width:200px;">xx</div>
+    <iframe {{bind-attr src="href"}}></iframe>
+</script>
+</body>
+</html>
