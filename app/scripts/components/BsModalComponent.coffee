@@ -87,7 +87,7 @@ Bootstrap.BsModalComponent = Ember.Component.extend(Ember.Evented,
         jQuery(window.document).bind "keyup", handler
         @_keyUpHandler = handler
 )
-
+Ember.Handlebars.helper 'bs-modal', Bootstrap.BsAlertComponent
 ###
 Bootstrap.BsModalComponent = Bootstrap.BsModalComponent.reopenClass(
     build: (options) ->
@@ -168,7 +168,9 @@ Bootstrap.ModalManager = Ember.Object.create(
 )
 
 
-Ember.Application.initializer
+
+###Ember.Application.initializer
     name: 'bs-modal'
     initialize: (container, application) ->
-        container.register 'component:bs-modal', Bootstrap.BsModalComponent
+        container.register 'component:bs-modal', Bootstrap.BsModalComponent###
+
