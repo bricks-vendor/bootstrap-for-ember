@@ -1,3 +1,6 @@
+#### For new rich set of UI components look at [Ember Components](http://indexiatech.github.io/ember-components/#/overview)
+
+
 # Bootstrap for Ember
 
 _Bootstrap for Ember.js_ is a collection of UI components based on Twitter Bootstrap *v3* for Ember.js
@@ -13,9 +16,9 @@ using Bootstrap as is, see showcase!
 
 > A picture is worth a thousand words
 
-### [See ShowCase](http://ember-addons.github.io/bootstrap-for-ember)
+#### Bootstrap for Ember [ShowCase](http://ember-addons.github.io/bootstrap-for-ember)
 
-### Also visit our new [Ember Forms](http://ember-addons.github.io/ember-forms/#/overview) project
+#### For forms components, take a look at [Ember Forms](http://indexiatech.github.io/ember-forms) project
 
 ## Why?
 
