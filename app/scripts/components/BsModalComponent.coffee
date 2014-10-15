@@ -169,3 +169,4 @@ Ember.Application.initializer
     name: 'bs-modal'
     initialize: (container, application) ->
         container.register 'component:bs-modal', Bootstrap.BsModalComponent
+        container.register 'component:bu-modal', Bootstrap.BsModalComponent
