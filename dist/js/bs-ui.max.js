@@ -2188,12 +2188,11 @@ Modal component.
       }
     },
     close: function(event) {
+      this.hide();
+      this.sendAction('closed');
       if (this.get('manual')) {
-        this.destroy();
-      } else {
-        this.hide();
+        return this.destroy();
       }
-      return this.trigger('closed');
     },
     willDestroyElement: function() {
       var name;

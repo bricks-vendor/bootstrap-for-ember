@@ -62,8 +62,10 @@ Bootstrap.BsModalComponent = Ember.Component.extend(Ember.Evented,
             @close event
 
     close: (event) ->
-        if @get('manual') then @destroy() else @hide()
-        @trigger 'closed'
+        @hide()
+        @sendAction 'closed'
+        @destroy() if @get('manual')
+        
 
     #Invoked automatically by ember when the view is destroyed, giving us a chance to perform cleanups
     willDestroyElement: ->
